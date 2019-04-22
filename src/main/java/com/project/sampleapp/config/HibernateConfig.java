@@ -64,7 +64,7 @@ package com.project.sampleapp.config;
 			properties.put("current_session_context_class","thread");
 			
 			LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
-			factoryBean.setPackagesToScan(new String[] {"com.project.shoponline1.model"});
+			factoryBean.setPackagesToScan(new String[] {"com.project.sampleapp.model"});
 			factoryBean.setDataSource(dataSource);
 			factoryBean.setHibernateProperties(properties);
 			factoryBean.afterPropertiesSet();
