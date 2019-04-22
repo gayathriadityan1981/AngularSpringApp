@@ -1,11 +1,13 @@
 package com.project.sampleapp.services;
 
+import com.project.sampleapp.model.Book;
 import com.project.sampleapp.model.*;
 import com.project.sampleapp.repository.BookRepository;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import com.project.sampleapp.repository.BookRepository;
@@ -17,19 +19,26 @@ public class BookService {
 	@Autowired
 	BookRepository bookRepository;
 	
-	public Book findBook(Long id){
-		
-		Book book=bookRepository.findBook(id);
-		return book;
-		
-	}
-	public Book createBook(Book data){
-		Book book=bookRepository.createBook(data);
-		return book;
-	}
-	public List<Book> listBooks(){
-		List<Book> books=bookRepository.listBooks();
-		return books;
-	}
+	 public long save(Book book) {
+	      return bookRepository.save(book);
+	   }
 
-}
+	   
+	   public Book get(long id) {
+	      return bookRepository.get(id);
+	   }
+
+	   
+	   public List<Book> list() {
+	      return bookRepository.listBooks();
+	   }
+
+	   public void update(long id, Book book) {
+		   bookRepository.updateBook(id, book);
+	   }
+
+	   public void delete(long id) {
+		   bookRepository.deleteBook(id);
+	   }
+
+	}

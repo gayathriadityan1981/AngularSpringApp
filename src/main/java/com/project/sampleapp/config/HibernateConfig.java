@@ -27,13 +27,13 @@ package com.project.sampleapp.config;
 
 		@Autowired
 		Environment env;
-		@Bean(name="viewResolver")
+		/*@Bean(name="viewResolver")
 		public InternalResourceViewResolver getViewResolver() {
 			InternalResourceViewResolver viewResolver=new InternalResourceViewResolver();
 			viewResolver.setPrefix("/WEB-INF/views/");
 			viewResolver.setSuffix("*.jsp");
 			return viewResolver;
-		}
+		}*/
 //		@Bean(name="multipartResolver")
 		//public CommonsMultipartResolver multipartResolver() {
 		//	CommonsMultipartResolver commonsMultipartResolver=new CommonsMultipartResolver();
@@ -41,6 +41,7 @@ package com.project.sampleapp.config;
 			//CommonsMultipartResolver.setMaxUploadSize("..)
 		//	return commonsMultipartResolver;
 		//}
+		
 		@Bean(name="dataSource")
 		public DataSource getDataSource() {
 			DriverManagerDataSource dataSource=new 		DriverManagerDataSource();

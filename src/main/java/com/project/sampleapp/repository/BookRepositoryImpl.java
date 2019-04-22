@@ -19,7 +19,16 @@ public class BookRepositoryImpl implements BookRepository{
 	public Book findBook(Long id){
 		return em.find(Book.class,id);
 	}
-	
+	   @Override
+	   public long save(Book book) {
+	      em.persist(book);
+	      return book.getId();
+	   }
+	   
+	   @Override
+	   public Book get(long id) {
+	      return em.find(Book.class, id);
+	   }
 	@Override
 	public List<Book> listBooks(){
 		Query query=em.createQuery("SELECT B FROM Book B");
@@ -44,11 +53,12 @@ public class BookRepositoryImpl implements BookRepository{
 		return data;
 	}
 	
+	@Override
 	public void deleteBook(Long id){
 		Book book=em.find(Book.class, id);
 		em.remove(book);
 	}
-	
+	@Override
 	public void updateBook(Long id,Book data){
 		Book book=em.find(Book.class, id);
 		book.setAuthor(data.getAuthor());
